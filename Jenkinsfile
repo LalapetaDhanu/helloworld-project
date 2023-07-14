@@ -23,7 +23,7 @@ stages {
     stage('Git checkout'){
       steps {
         git branch: '${Branch}',
-        url: 'https://github.com/chinni4321/helloworld-project-1.git'
+        url: 'https://github.com/joeltoram/SprintBoot.git'
       }
     }
     stage('Maven build'){
@@ -42,7 +42,7 @@ stages {
       } 
        stage ('Publish Artifact') {
         steps {
-          nexusArtifactUploader artifacts: [[artifactId: 'hello-world-war', classifier: '', file: "target/hello-world-war-1.0.0.war", type: 'war']], credentialsId: 'nexus-cred', groupId: 'com.efsavage', nexusUrl: "${nexus_url}", nexusVersion: 'nexus3', protocol: 'http', repository: 'release', version: "${artifact_version}"
+          nexusArtifactUploader artifacts: [[artifactId: 'umg-api', classifier: '', file: "target/*.jar", type: 'jar']], credentialsId: 'nexus-cred', groupId: 'umg.edu.progra', nexusUrl: "${nexus_url}", nexusVersion: 'nexus3', protocol: 'http', repository: 'release', version: "${artifact_version}"
         }
       }
       stage ('Build Docker Image'){
