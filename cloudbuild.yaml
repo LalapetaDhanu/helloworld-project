@@ -25,3 +25,15 @@ steps:
   args:
   - 'push'
   - 'gcr.io/invertible-hook-406706/maven:3.6.3-jdk-11-$SHORT_SHA'
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'spannerdemo'
+  - '--image'
+  - 'gcr.io/$invertible-hook-406706/spannerdemo:$COMMIT_SHA'
+  - '--platform'
+  - 'manages'
+  - '--region'
+  - 'us-central1'
+  - '--allow-unauthenticated'
