@@ -17,3 +17,5 @@ steps:
     - '-Dsonar.projectKey=91a2cdbe377e5236d3d512303589c314fe1d3187'
     - '-Dsonar.sources=/workspace'
     - '-Dsonar.exclusions=**/*.html,**/*.json,**/*.css,**/*.md,**/target/**,**/src/test/**,**/lib/**'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build','-t','gcr.io/$invertible-hook-406706/maven:3.6.3-jdk-11:$SHORT_SHA','.']
