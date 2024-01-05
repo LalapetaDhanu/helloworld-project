@@ -3,16 +3,17 @@ steps:
   args: ['clone', 'https://github.com/LalapetaDhanu/helloworld-project.git', '--branch', 'main', 'workspace']
 
 - name: 'maven:3.6.3-jdk-11'
-  entrypoint: 'bash'
+  entrypoint: 'mvn'
   args:
-  - '-c'
-  - 'cd workspace && mvn clean install'
-- name: 'gcr.io/cloud-builders/mvn'
+  - 'clean'
+  - 'install'
+
+- name: 'maven:3.6.3-jdk-11'
   entrypoint: 'mvn'
   args:
     - 'sonar:sonar'
-    - 'Dsonar.host.url=http://34.41.104.44:9000'
-    - 'Dsonar.login=819699eacfd69c8786fc35ce87fd91254b43142e'
-    - 'Dsonar.projectkey=91a2cdbe377e5236d3d512303589c314fe1d3187'
-    - 'Dsonar.sources=/workspace'
-    - 'Dsonar.exclusions=**/*.html,**/*.json,**/*.css,**/*.md,**/target/**,**/src/test/**,**/lib/**'
+    - '-Dsonar.host.url=http://34.41.104.44:9000'
+    - '-Dsonar.login=819699eacfd69c8786fc35ce87fd91254b43142e'
+    - '-Dsonar.projectKey=91a2cdbe377e5236d3d512303589c314fe1d3187'
+    - '-Dsonar.sources=/workspace'
+    - '-Dsonar.exclusions=**/*.html,**/*.json,**/*.css,**/*.md,**/target/**,**/src/test/**,**/lib/**'
