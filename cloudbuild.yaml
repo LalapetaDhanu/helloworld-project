@@ -2,11 +2,11 @@ steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://github.com/LalapetaDhanu/helloworld-project.git', '--branch', 'main', 'workspace']
 
-- name: 'maven:3.6.3-openjdk-11-jdk'
+- name: 'maven:3.6.3-jdk-11'
   entrypoint: 'bash'
   args:
-    - '-c'
-    - 'cd workspace && mvn clean install -X'
+  - '-c'
+  - 'cd workspace && mvn clean install'
 - name: 'gcr.io/cloud-builders/mvn'
   entrypoint: 'mvn'
   args:
