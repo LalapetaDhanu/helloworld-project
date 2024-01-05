@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', 'https://LalapetaDhanu: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@github.com/LalapetaDhanu/helloworld-project.git', '--branch', 'main', 'workspace']
-- name: 'maven:3.8.3-openjdk-8-jdk'
+- name: 'maven:3.6.3-openjdk-8-jdk'
   entrypoint: 'mvn'
   args:
     - 'clean'
