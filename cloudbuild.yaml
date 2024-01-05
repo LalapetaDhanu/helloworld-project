@@ -25,5 +25,7 @@ steps:
   - 'gcr.io/invertible-hook-406706/maven:3.6.3-jdk-11-$SHORT_SHA'
   - '.'
   
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/invertible-hook-406706/maven:3.6.3-jdk-11:$SHORT_SHA']
+ - name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'push'
+  - 'gcr.io/invertible-hook-406706/maven:3.6.3-jdk-11-$SHORT_SHA'
